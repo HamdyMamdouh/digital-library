@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b132b">
+  <title>المكتبة الرقمية للحاسبات والذكاء الاصطناعي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Ambient Background Mesh -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Top Navigation Header -->
+  <header class="site-header">
+    <div class="container header-bar">
+      <a href="#" class="brand" id="brandReset" aria-label="العودة للرئيسية">
+        <span class="brand-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+            <path d="M9 7h6"/><path d="M9 11h4"/>
+          </svg>
+        </span>
+        <div class="brand-text">
+          <strong>المكتبة الرقمية</strong>
+          <small>للحاسبات والذكاء الاصطناعي</small>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <button class="nav-pill" id="viewModeBtn" type="button" title="تبديل طريقة العرض" aria-label="تبديل طريقة العرض">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span class="hide-xs">شبكة</span>
+        </button>
+
+        <button class="nav-pill" id="mb" type="button" aria-pressed="false">
+          <span class="star-icon">★</span>
+          <span>قائمتي</span>
+          <span class="badge-count" id="savedBadge">0</span>
+        </button>
+
+        <button class="nav-pill icon-only" id="tb" type="button" aria-label="تغيير المظهر" title="تغيير المظهر (ليلي / نهاري)">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-grid-pattern" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        فهرس أكاديمي منتقى لطلاب وباحثي علوم الحاسب
+      </div>
+
+      <h1>المكتبة الرقمية للحاسبات والذكاء الاصطناعي</h1>
+      <p class="hero-desc">
+        مراجع كلية الحاسبات في مكان واحد: لغات البرمجة، تعلم الآلة، التعلم العميق، قواعد البيانات، الخوارزميات، الشبكات، الأمن السيبراني وغيرها.
+      </p>
+
+      <!-- Interactive Search Box -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          </span>
+          <input id="q" class="search-input" type="search" placeholder="ابحث بعنوان كتاب أو مؤلف أو موضوع: Python، بايثون، neural networks، تشفير..." aria-label="بحث" autocomplete="off">
+          <button type="button" class="clear-search" id="clearSearch" hidden aria-label="مسح البحث">✕</button>
+          <kbd class="search-kbd" title="اختصار البحث">/</kbd>
+        </div>
+
+        <!-- Quick Search Suggestions -->
+        <div class="quick-tags" aria-label="اقتراحات بحث سريعة">
+          <span class="qt-label">بحث سريع:</span>
+          <button type="button" class="qt-btn" data-sq="Python">Python</button>
+          <button type="button" class="qt-btn" data-sq="Deep Learning">Deep Learning</button>
+          <button type="button" class="qt-btn" data-sq="Algorithms">Algorithms</button>
+          <button type="button" class="qt-btn" data-sq="تشفير">تشفير</button>
+          <button type="button" class="qt-btn" data-sq="قواعد بيانات">قواعد بيانات</button>
+        </div>
+      </div>
+
+      <div class="stats" id="stt"></div>
+    </div>
+  </section>
+
+  <!-- Main Workspace Layout -->
+  <main class="container main-layout">
+    <!-- Sidebar Filters -->
+    <aside class="sidebar" id="sd" aria-label="الفلاتر">
+      <div class="sidebar-head">
+        <h2>تصفية المراجع</h2>
+        <button type="button" class="reset-filters-btn" id="resetAllBtn" hidden>إعادة ضبط</button>
+      </div>
+
+      <div class="filter-group">
+        <h3>النوع</h3>
+        <div id="tc" class="filter-list"></div>
+      </div>
+
+      <div class="filter-divider"></div>
+
+      <div class="filter-group">
+        <h3>المجال التخصصي</h3>
+        <div id="fc" class="filter-list"></div>
+      </div>
+    </aside>
+
+    <!-- Results Content Area -->
+    <div class="content-area">
+      <!-- Mobile Category Strip -->
+      <div class="strip" id="fs" aria-label="تصنيفات سريعة"></div>
+
+      <!-- Toolbar -->
+      <div class="tools-bar">
+        <div class="results-info">
+          <span class="count" id="cn" aria-live="polite"></span>
+          <span class="active-filter-pill" id="activePill" hidden></span>
+        </div>
+
+        <div class="tools-controls">
+          <button class="nav-pill mobile-filter-btn" id="fo" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+            <span>الفلاتر</span>
+          </button>
+
+          <div class="select-wrap">
+            <select id="so" class="sort-select" aria-label="الترتيب">
+              <option value="f">✨ مختارات متنوعة</option>
+              <option value="n">🆕 الأحدث أولاً</option>
+              <option value="o">🏛️ الأقدم أولاً</option>
+              <option value="a">🔤 أبجدياً (A-Z)</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Books & Papers Grid -->
+      <div class="grid" id="gd"></div>
+
+      <!-- Pagination / Load More -->
+      <div class="load-more-wrap">
+        <button class="btn-load-more" id="mo" type="button" hidden>
+          <span>عرض المزيد من المراجع</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+
+      <!-- External Search Engines & AI Helper -->
+      <section class="eng-card">
+        <div class="eng-header">
+          <div class="eng-icon" aria-hidden="true">🌍</div>
+          <div>
+            <h2>كمّل بحثك في ملايين المصادر العالمية</h2>
+            <p class="eng-sub">الأزرار بتفتح المحرك الأكاديمي بنفس كلمات البحث اللي كتبتها فوق.</p>
+          </div>
+        </div>
+
+        <div class="eng-links" id="eg"></div>
+
+        <div class="ai-box" id="aiBox">
+          <div class="ai-actions">
+            <button class="btn-ai" id="ai" type="button" hidden>
+              <span>🤖 مساعد البحث: اقترح كلمات مفتاحية</span>
+            </button>
+          </div>
+          <pre id="aio" class="ai-output" hidden></pre>
+        </div>
+
+        <p class="eng-disclaimer">
+          الفهرس مرجعي ومنتقى وليس شاملاً. راجع الطبعة والسنة من المصدر قبل الاستشهاد الرسمي. المساعد بيقترح كلمات بحث فقط ومش بيذكر مراجع.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-top" id="backTop" aria-label="العودة للأعلى" title="العودة للأعلى">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Book Details Modal -->
+  <dialog id="dg" class="book-dialog" aria-label="تفاصيل الكتاب">
+    <div class="modal-card" id="dc"></div>
+  </dialog>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="ts" role="status" aria-live="polite"></div>
+
+  <!-- Scripts (Separated cleanly: Data -> App Logic) -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

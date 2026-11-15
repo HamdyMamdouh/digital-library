@@ -1459,3 +1459,468 @@ button {
     scroll-behavior: auto !important;
   }
 }
+
+/* ==========================================================================
+   تحسينات التجاوب (Responsive) - موبايل / تابلت / لاب / شاشات كبيرة
+   مضافة في نهاية الملف فقط، ولا تغيّر التصميم ولا المحتوى ولا الوظائف
+   ========================================================================== */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* منع تمدد الصفحة أفقياً: عناصر الـ Grid لازم تقدر تنكمش */
+.main-layout {
+  grid-template-columns: 285px minmax(0, 1fr);
+}
+
+.content-area,
+.hero-inner,
+.search-wrapper,
+.search-box {
+  min-width: 0;
+}
+
+.search-input {
+  min-width: 0;
+  text-overflow: ellipsis;
+}
+
+.container {
+  padding-inline: max(20px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+}
+
+.brand {
+  min-width: 0;
+}
+
+.brand-text {
+  min-width: 0;
+}
+
+.brand-text strong,
+.brand-text small {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-actions {
+  flex-shrink: 0;
+}
+
+.bk,
+.bk-body,
+.m {
+  min-width: 0;
+}
+
+.m,
+.cv b,
+.cv small {
+  overflow-wrap: anywhere;
+}
+
+/* ---------- شاشات كبيرة (لاب كبير / ديسكتوب / TV) ---------- */
+@media (min-width: 1500px) {
+  .container {
+    max-width: 1480px;
+  }
+
+  .main-layout {
+    grid-template-columns: 300px minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (min-width: 1900px) {
+  .container {
+    max-width: 1720px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+  }
+}
+
+/* ---------- لاب صغير / تابلت عرضي ---------- */
+@media (max-width: 1100px) {
+  .main-layout {
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+    gap: 20px 14px;
+  }
+}
+
+/* ---------- تابلت عمودي وأقل ---------- */
+@media (max-width: 920px) {
+  .main-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  }
+
+  .grid.list-view {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tools-bar {
+    padding: 10px 14px;
+  }
+
+  .eng-card {
+    padding: 20px;
+    margin-top: 36px;
+  }
+
+  .modal-card {
+    max-height: calc(100vh - 32px);
+    max-height: calc(100dvh - 32px);
+  }
+}
+
+/* ---------- موبايل كبير / تابلت صغير ---------- */
+@media (max-width: 720px) {
+  .header-bar {
+    height: 60px;
+    gap: 10px;
+  }
+
+  .hero-desc {
+    font-size: 0.96rem;
+  }
+
+  .tools-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tools-controls {
+    width: 100%;
+  }
+
+  .tools-controls .select-wrap {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sort-select {
+    width: 100%;
+  }
+
+  .mobile-filter-btn {
+    flex-shrink: 0;
+  }
+}
+
+/* ---------- موبايل ---------- */
+@media (max-width: 600px) {
+  .container {
+    padding-inline: max(14px, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+  }
+
+  .site-header {
+    top: env(safe-area-inset-top, 0px);
+  }
+
+  .brand {
+    gap: 9px;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .brand-text strong {
+    font-size: 0.96rem;
+  }
+
+  .brand-text small {
+    font-size: 0.7rem;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .nav-pill {
+    height: 38px;
+    padding: 0 11px;
+    font-size: 0.85rem;
+  }
+
+  .nav-pill.icon-only {
+    width: 38px;
+    padding: 0;
+  }
+
+  .hero {
+    padding: 28px 0 26px;
+  }
+
+  .hero-badge {
+    font-size: 0.76rem;
+    padding: 4px 12px;
+    line-height: 1.5;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.5rem, 7vw, 1.9rem);
+  }
+
+  .hero-desc {
+    font-size: 0.92rem;
+    margin-bottom: 18px;
+  }
+
+  .search-box {
+    border-radius: 14px;
+    padding: 2px 12px;
+  }
+
+  .search-input {
+    font-size: 16px; /* يمنع تكبير الصفحة تلقائياً على iPhone */
+    padding: 11px 0;
+  }
+
+  .search-input::placeholder {
+    font-size: 0.88rem;
+  }
+
+  .quick-tags {
+    gap: 6px;
+  }
+
+  .stats {
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .stat-pill {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+
+  .stat-pill b {
+    font-size: 1.15rem;
+  }
+
+  .main-layout {
+    padding-top: 18px;
+    padding-bottom: 56px;
+  }
+
+  .sidebar {
+    padding: 14px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 10px;
+  }
+
+  .grid.list-view {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .bk {
+    padding: 9px;
+    gap: 8px;
+  }
+
+  .cv {
+    padding: 30px 10px 10px 18px;
+  }
+
+  .cv b {
+    font-size: 0.84rem;
+  }
+
+  .cv small {
+    font-size: 0.72rem;
+  }
+
+  .cv::after {
+    font-size: 3.6rem;
+  }
+
+  .acts {
+    gap: 5px;
+  }
+
+  .btn {
+    padding: 6px 9px;
+    font-size: 0.78rem;
+  }
+
+  .grid.list-view .bk {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .grid.list-view .cv {
+    width: 64px;
+    padding: 10px 6px 6px 10px;
+  }
+
+  .grid.list-view .bk-title-list {
+    font-size: 0.95rem;
+  }
+
+  .grid.list-view .acts {
+    justify-content: flex-start;
+  }
+
+  .eng-card {
+    padding: 16px;
+    margin-top: 30px;
+  }
+
+  .eng-header {
+    gap: 10px;
+  }
+
+  .eng-header h2 {
+    font-size: 1.05rem;
+  }
+
+  .eng-links .btn {
+    padding: 6px 11px;
+  }
+
+  .btn-load-more {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 20px;
+  }
+
+  /* نافذة التفاصيل */
+  .modal-card {
+    width: calc(100% - 20px);
+    max-height: calc(100vh - 20px);
+    max-height: calc(100dvh - 20px);
+    padding: 18px 16px;
+    border-radius: 18px;
+  }
+
+  .dh {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .dh > div:last-child {
+    width: 100%;
+  }
+
+  .dh .cv {
+    width: 130px;
+  }
+
+  .dh h2 {
+    font-size: 1.2rem;
+  }
+
+  .rel {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .back-top {
+    inset-inline-end: 14px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    width: 42px;
+    height: 42px;
+  }
+
+  .toast {
+    max-width: calc(100% - 28px);
+    padding: 10px 18px;
+    font-size: 0.86rem;
+    text-align: center;
+  }
+}
+
+/* ---------- موبايل صغير جداً ---------- */
+@media (max-width: 400px) {
+  .brand-text small {
+    display: none;
+  }
+
+  .brand-text strong {
+    font-size: 0.9rem;
+  }
+
+  .nav-pill {
+    padding: 0 9px;
+    gap: 5px;
+  }
+
+  .grid {
+    gap: 12px 8px;
+  }
+
+  .cv b {
+    font-size: 0.8rem;
+  }
+
+  .hero-badge {
+    font-size: 0.72rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .brand-text {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- موبايل بالعرض (Landscape) ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    padding: 22px 0 20px;
+  }
+
+  .modal-card {
+    max-height: calc(100vh - 16px);
+    max-height: calc(100dvh - 16px);
+  }
+
+  .sidebar {
+    max-height: none;
+  }
+}
+
+/* ---------- شاشات اللمس: بدون تأثيرات hover ثابتة وأهداف لمس أكبر ---------- */
+@media (hover: none) {
+  .bk:hover,
+  .bk:hover .cv,
+  .nav-pill:hover,
+  .btn-load-more:hover,
+  .qt-btn:hover,
+  .fb:hover {
+    transform: none;
+  }
+
+  .btn,
+  .fb {
+    min-height: 36px;
+  }
+}
